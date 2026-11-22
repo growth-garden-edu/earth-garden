@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>1.5℃ 지구 한 조각 정원</title>
+<title>SDGs 17 조각 정원</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Batang:wght@700&family=Gowun+Dodum&family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -18,7 +18,7 @@
   header .sub::before, header .sub::after { content:""; width:28px; height:1.5px; background:linear-gradient(90deg,transparent,#8fc9a6); }
   header .sub::after { transform:scaleX(-1); }
   header h1 { margin:7px 0 10px; display:flex; align-items:baseline; justify-content:center; gap:3px; line-height:1.1; }
-  header h1 .t { white-space:nowrap; font-family:"Noto Sans KR",sans-serif; font-size:clamp(21px,7vw,31px); font-weight:900; letter-spacing:-1px; background:linear-gradient(90deg,#1f7a4f 0%,#2a8f7a 45%,#2a7fc0 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 2px 3px rgba(31,90,110,.15)); }
+  header h1 .t { white-space:nowrap; font-family:"Noto Sans KR",sans-serif; font-size:clamp(21px,7vw,31px); font-weight:900; letter-spacing:-1px; background:linear-gradient(90deg,#E5243B 0%,#FD6925 18%,#DDA63A 32%,#4C9F38 50%,#26BDE2 68%,#00689D 84%,#19486A 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 2px 3px rgba(31,90,110,.15)); }
   header h1 .at { font-family:"Noto Sans KR",sans-serif; font-size:17px; font-weight:800; letter-spacing:.5px; color:#2a7fc0; }
   header h1 .at em { font-style:normal; color:#7fb6dc; margin-right:1px; }
   .chips { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; }
@@ -40,6 +40,19 @@
   .panel[data-step="1"] { --sc:#6cc08b; } .panel[data-step="2"] { --sc:#2f9a62; } .panel[data-step="3"] { --sc:#17583a; }
   .panel[data-step] .big:not(.alt) { background:linear-gradient(90deg,var(--sc),color-mix(in srgb,var(--sc) 75%,#0e3a25)); }
   .panel[data-step] .ttl { color:color-mix(in srgb,var(--sc) 55%,#1d2f25); }
+  .sdgBoard { display:block; width:100%; margin-top:12px; padding:10px 10px 9px; border:0; border-radius:16px; background:#fff; font:inherit; text-align:left; cursor:pointer; color:var(--ink); box-shadow:inset 0 0 0 1.5px #e3eadf, 0 3px 8px rgba(31,107,69,.08); }
+  .sbHead { display:flex; justify-content:space-between; align-items:baseline; margin:0 2px 7px; } .sbHead b { font-size:16.5px; font-weight:900; } .sbHead span { font-size:14px; font-weight:900; color:#1f6b45; }
+  .sdgBoard > small { display:block; font-size:11.5px; color:#5d6f63; font-weight:700; margin:7px 2px 0; line-height:1.45; }
+  .sdgGrid { display:grid; grid-template-columns:repeat(6,1fr); gap:3px; }
+  .sdt { position:relative; aspect-ratio:1; background:var(--c); color:#fff; padding:3px 4px; display:flex; flex-direction:column; justify-content:space-between; opacity:.22; filter:saturate(.6); transition:.3s; overflow:hidden; }
+  .sdt.on { opacity:1; filter:none; } .sdt b { font-family:"Noto Sans KR",sans-serif; font-size:clamp(15px,4.6vw,22px); font-weight:900; line-height:1; } .sdt span { font-size:clamp(8px,2.3vw,10.5px); font-weight:800; line-height:1.15; letter-spacing:-.3px; word-break:keep-all; }
+  .sdt i { position:absolute; right:3px; top:2px; font-style:normal; font-size:11px; font-weight:900; }
+  .sdt.logo { opacity:1; filter:none; background:#fff; box-shadow:inset 0 0 0 1.5px #e3eadf; color:#1f3a2c; align-items:center; justify-content:center; gap:0; padding:2px; } .sdt.logo svg { width:70%; height:auto; } .sdt.logo span { font-size:9px; }
+  .sdgTile { display:flex; align-items:center; gap:10px; margin:4px auto 8px; width:max-content; max-width:100%; background:var(--c); color:#fff; padding:8px 14px 8px 10px; } .sdgTile b { font-family:"Noto Sans KR",sans-serif; font-size:34px; font-weight:900; line-height:1; } .sdgTile span { font-size:14.5px; font-weight:900; line-height:1.25; text-align:left; } .sdgTile small { display:block; font-size:11px; font-weight:700; opacity:.9; }
+  .wheelBox { display:flex; align-items:center; gap:12px; width:100%; margin-top:12px; padding:10px 14px; border:1.5px solid #e3eadf; border-radius:16px; background:#fff; font:inherit; text-align:left; cursor:pointer; color:var(--ink); box-shadow:0 3px 8px rgba(31,107,69,.08); }
+  .wheelBox b { display:block; font-size:16.5px; font-weight:900; } .wheelBox small { display:block; font-size:12.5px; color:#6d8a76; font-weight:700; margin-top:2px; } .wheelBox i { display:block; font-style:normal; font-size:11.5px; color:#3a5a48; font-weight:800; margin-top:5px; }
+  .sdgno { display:table; margin:4px auto 6px; color:#fff; font-weight:900; font-size:13px; padding:3px 11px; border-radius:20px; }
+  .grid4 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px; }
   .tiles button { border:1.5px solid #e3eadf; background:#fbfdf9; border-radius:14px; padding:10px 4px 9px; font:inherit; font-size:14.5px; font-weight:800; color:var(--ink); cursor:pointer; line-height:1.3; }
   .tiles .ic { display:block; font-size:26px; margin-bottom:3px; }
@@ -79,7 +92,7 @@
   .slot { position:absolute; left:50%; top:9%; width:32%; height:3.6%; transform:translateX(-50%); background:linear-gradient(#0d2a1c,#1f4a33); border-radius:20px; }
   .thermo { position:relative; width:17%; margin-bottom:1%; z-index:2; }
   .thermo svg { width:100%; height:auto; display:block; overflow:visible; }
-  .thermo .tv { position:absolute; left:50%; transform:translateX(-50%); top:-11%; white-space:nowrap; font-size:13.2px; font-weight:900; color:var(--red); background:#fff; border-radius:10px; padding:1px 6px; box-shadow:0 2px 5px rgba(0,0,0,.15); }
+  .thermo .tv { position:absolute; left:50%; transform:translateX(-50%); top:-11%; white-space:nowrap; font-size:13.2px; font-weight:900; color:#1f6b45; background:#fff; border-radius:10px; padding:1px 6px; box-shadow:0 2px 5px rgba(0,0,0,.15); }
   .me { position:absolute; right:0%; bottom:7%; width:29%; filter:drop-shadow(0 6px 6px rgba(0,0,0,.18)); transform-origin:50% 100%; display:none; }
   @keyframes hop { 0%,100%{transform:translateY(0)} 30%{transform:translateY(-14%) rotate(-4deg)} 60%{transform:translateY(0) rotate(3deg)} }
   .hop { animation:hop .7s ease 2; }
@@ -256,6 +269,42 @@
   @keyframes windmill { 0%{transform:perspective(600px) translateY(0) rotateY(0)} 10%{transform:perspective(600px) translateY(-6%) rotateY(0)} 30%{transform:perspective(600px) translateY(-8%) rotateY(360deg)} 50%{transform:perspective(600px) translateY(-6%) rotateY(720deg)} 70%{transform:perspective(600px) translateY(-8%) rotateY(1080deg)} 90%{transform:perspective(600px) translateY(-3%) rotateY(1440deg)} 100%{transform:perspective(600px) translateY(0) rotateY(1440deg)} }
   @keyframes earthspin { 0%{transform:perspective(700px) translateY(0) rotateY(0)} 15%{transform:perspective(700px) translateY(-3%) rotateY(0)} 85%{transform:perspective(700px) translateY(-3%) rotateY(360deg)} 100%{transform:perspective(700px) translateY(0) rotateY(360deg)} }
   .windmill { animation:earthspin 4.2s cubic-bezier(.45,.05,.35,1); transform-origin:50% 100% !important; }
+
+  /* ===== SDGs 17 테마 (공식 색 팔레트 · 납작한 색면 · 각진 타일) ===== */
+  :root { --g:#3F7E44; --g2:#4C9F38; --cream:#f7f7f5; --ink:#1e2a36; --red:#E5243B; --gold:#FCC30B; }
+  body { background:#f0f1ee; }
+  .app::before { content:""; display:block; height:6px; background:linear-gradient(90deg,#E5243B 0 5.88%,#DDA63A 0 11.76%,#4C9F38 0 17.65%,#C5192D 0 23.53%,#FF3A21 0 29.41%,#26BDE2 0 35.29%,#FCC30B 0 41.18%,#A21942 0 47.06%,#FD6925 0 52.94%,#DD1367 0 58.82%,#FD9D24 0 64.71%,#BF8B2E 0 70.59%,#3F7E44 0 76.47%,#0A97D9 0 82.35%,#56C02B 0 88.24%,#00689D 0 94.12%,#19486A 0); }
+  .panel { border-radius:0; box-shadow:0 -3px 0 #19486A inset, 0 -6px 16px rgba(0,0,0,.06); box-shadow:0 -6px 16px rgba(0,0,0,.06); }
+  .steps li[data-s="1"] { --c:#26BDE2; --p:#e5f6fb; } .steps li[data-s="2"] { --c:#FD6925; --p:#fff0e7; } .steps li[data-s="3"] { --c:#3F7E44; --p:#e8f0e8; }
+  .steps li, .steps li i { border-radius:4px; }
+  .panel[data-step="1"] { --sc:#0A97D9; } .panel[data-step="2"] { --sc:#FD6925; } .panel[data-step="3"] { --sc:#3F7E44; }
+  .stepbadge { border-radius:3px; }
+  .big { border-radius:6px; background:#3F7E44; box-shadow:0 5px 0 #2b5a30; }
+  .big:active { transform:translateY(3px); box-shadow:0 2px 0 #2b5a30; }
+  .panel[data-step] .big:not(.alt) { background:var(--sc); box-shadow:0 5px 0 color-mix(in srgb,var(--sc) 70%,#000); }
+  .big.alt { border-radius:6px; }
+  .lvsel button { border-radius:4px; border:2px solid #d9ded9; }
+  .lvsel button.on[data-lv="e"], .lvsel button.on[data-lv2="e"] { background:#4C9F38; border-color:#4C9F38; }
+  .lvsel button.on[data-lv="m"], .lvsel button.on[data-lv2="m"] { background:#0A97D9; border-color:#0A97D9; }
+  .lvsel button.on[data-lv="h"], .lvsel button.on[data-lv2="h"] { background:#19486A; border-color:#19486A; }
+  .learnBtn { background:#C5192D; border:0; border-radius:6px; } .learnBtn b, .learnBtn .ga { color:#fff; } .learnBtn small { color:#ffe1e4; }
+  .tiles button { border:0; border-radius:4px; color:#fff; padding:11px 4px 10px; } .tiles small { color:rgba(255,255,255,.88); }
+  .tiles #mDex { background:#DDA63A; } .tiles #mPrev { background:#26BDE2; } .tiles #mGal { background:#FD6925; }
+  .shareRow button { border-radius:6px; } .shareRow .sh { background:#FCC30B; box-shadow:none; color:#1e2a36; }
+  .guideBox { border-radius:6px; box-shadow:none; } .guideBox b, .guideBox .ga { color:#fff !important; } .guideBox small { color:rgba(255,255,255,.88) !important; }
+  .guideBox.sbti { background:#00689D; box-shadow:none; } .guideBox.sbti.run { background:#4C9F38; }
+  .guideBox.eth { background:#A21942; } a.guideBox ~ .guideBox:not(.eth) , .guideBox#mGuide { background:#19486A; }
+  .sdgBoard { border-radius:6px; }
+  .opt { border-radius:6px; }
+  .grid4 .opt { border:0; color:#fff; } .grid4 .opt[data-a="people"] { background:#E5243B; } .grid4 .opt[data-a="planet"] { background:#3F7E44; } .grid4 .opt[data-a="prosperity"] { background:#FD9D24; } .grid4 .opt[data-a="peace"] { background:#00689D; }
+  .list .opt { border:0; border-left:8px solid #19486A; background:#f4f6f8; border-radius:4px; }
+  .card { border-radius:6px; background:#fff; border:2px solid #e3e6e3; }
+  .card .gift { color:#6b7480; }
+  .back { border-radius:4px; }
+  .sheet { border-radius:8px; } .sheet .x { border-radius:4px; background:#19486A; }
+  .msgbox { border-radius:6px; }
+  .sbtiFab { background:#00689D; border-radius:6px; box-shadow:0 4px 0 #004a70; } .sbtiFab small { color:#ffe08a; }
+  .dex > div { border-radius:6px; }
 </style>
 </head>
 <body>
@@ -295,12 +344,12 @@
       <div class="coin" id="coin"></div>
     </div></div>
     <div class="thermo">
-      <svg viewBox="0 0 60 300" aria-label="실천 온도계">
-        <defs><linearGradient id="mg" x1="0" x2="1"><stop offset="0" stop-color="#e2453f"/><stop offset=".45" stop-color="#ff7a6e"/><stop offset="1" stop-color="#c62f2f"/></linearGradient><clipPath id="tube"><rect x="21" y="8" width="18" height="240" rx="9"/></clipPath></defs>
-        <rect x="16" y="3" width="28" height="250" rx="14" fill="#fff" stroke="#e7b7b7" stroke-width="3"/>
+      <svg viewBox="0 0 60 300" aria-label="SDGs 실천 게이지">
+        <defs><linearGradient id="mg" x1="0" y1="1" x2="0" y2="0"><stop offset="0.000" stop-color="#E5243B"/><stop offset="0.062" stop-color="#DDA63A"/><stop offset="0.125" stop-color="#4C9F38"/><stop offset="0.188" stop-color="#C5192D"/><stop offset="0.250" stop-color="#FF3A21"/><stop offset="0.312" stop-color="#26BDE2"/><stop offset="0.375" stop-color="#FCC30B"/><stop offset="0.438" stop-color="#A21942"/><stop offset="0.500" stop-color="#FD6925"/><stop offset="0.562" stop-color="#DD1367"/><stop offset="0.625" stop-color="#FD9D24"/><stop offset="0.688" stop-color="#BF8B2E"/><stop offset="0.750" stop-color="#3F7E44"/><stop offset="0.812" stop-color="#0A97D9"/><stop offset="0.875" stop-color="#56C02B"/><stop offset="0.938" stop-color="#00689D"/><stop offset="1.000" stop-color="#19486A"/></linearGradient><clipPath id="tube"><rect x="21" y="8" width="18" height="240" rx="9"/></clipPath></defs>
+        <rect x="16" y="3" width="28" height="250" rx="14" fill="#fff" stroke="#c9d6cd" stroke-width="3"/>
         <g clip-path="url(#tube)"><rect id="merc" x="21" y="248" width="18" height="260" fill="url(#mg)"/></g>
-        <circle cx="30" cy="268" r="24" fill="#fff" stroke="#e7b7b7" stroke-width="3"/><circle cx="30" cy="268" r="18" fill="url(#mg)"/>
-        <g font-size="15" font-weight="800" fill="#b2302c" font-family="sans-serif"><text x="56" y="15" id="thermoTop"></text><text x="56" y="249">0</text></g><g stroke="#e3a0a0" stroke-width="2"><line x1="44" y1="244" x2="50" y2="244"/><line x1="44" y1="196" x2="50" y2="196"/><line x1="44" y1="148" x2="54" y2="148"/><line x1="44" y1="100" x2="50" y2="100"/><line x1="44" y1="52" x2="50" y2="52"/><line x1="44" y1="10" x2="54" y2="10"/></g>
+        <circle cx="30" cy="268" r="24" fill="#fff" stroke="#c9d6cd" stroke-width="3"/><circle cx="30" cy="268" r="18" fill="url(#mg)"/>
+        <g font-size="15" font-weight="800" fill="#1f6b45" font-family="sans-serif"><text x="56" y="15" id="thermoTop"></text><text x="56" y="249">0</text></g><g stroke="#b9c9be" stroke-width="2"><line x1="44" y1="244" x2="50" y2="244"/><line x1="44" y1="196" x2="50" y2="196"/><line x1="44" y1="148" x2="54" y2="148"/><line x1="44" y1="100" x2="50" y2="100"/><line x1="44" y1="52" x2="50" y2="52"/><line x1="44" y1="10" x2="54" y2="10"/></g>
       </svg>
       <span class="tv" id="tv">0</span>
     </div></div>
@@ -321,37 +370,38 @@
    - 그림은 같은 이름의 파일로 바꿔 넣으세요 (README.md 참고).
    ===================================================================== */
 const SCHOOL = {
-  sub:      "파리협정의 1.5℃ 목표를 지키는<br>실천 다짐 한 조각 저금통",          // 제목 위 작은 글씨
-  title:    "1.5℃ 지구 한 조각 정원",                    // 큰 제목
+  sub:      "SDGs 17개 목표를 한 조각씩 채우는<br>실천 다짐 저금통",          // 제목 위 작은 글씨
+  title:    "SDGs 17 조각 정원",                    // 큰 제목
   tag:      "",                             // 제목 옆 @ 뒤 글씨
   greet1:   "우리의 작은 실천이 모여",            // 말풍선 첫 줄
-  greet2:   "지구의 온도를 지켜요.",                // 말풍선 둘째 줄
+  greet2:   "17개의 약속을 채워요.",                // 말풍선 둘째 줄
   hostRole: "정원 안내:",
   hostName: "지구 정원지기",
-  bankName: "1.5℃ 실천 다짐 저금통",
+  bankName: "SDGs 17 실천 다짐 저금통",
   people:   "우리",
   mascotA:  "푸른별",  mascotB: "새싹별",
-  credit:   "1.5℃ 지구 한 조각 정원 · 성장 정원 오픈 소스 기반<br>CC BY-NC-SA 4.0 · 누구나 고쳐 쓰고 나눌 수 있어요",
+  credit:   "SDGs 17 조각 정원 · 성장 정원 오픈 소스 기반<br>CC BY-NC-SA 4.0 · 누구나 고쳐 쓰고 나눌 수 있어요",
   numberStory: "300은 100조각 × 그림 3점이에요. 숨이 찬 지구가 우리의 실천으로 초록 지구가 되어 가는 과정을 담았어요.",
   sage:     "지구",
   giftLine: "세계의 약속 SDGs에서 고른 문장을 선물합니다",
   origLabel: "🌍 세계의 약속 · SDGs",
-  cardWhy:  ["유엔 지속가능발전목표(SDGs) 17개 가운데 생활 속 실천과 바로 이어지는 7개 목표(물·에너지·소비·기후·바다·숲·협력)를 골랐어요.",
-             "학교급(초·중·고)을 바꾸면 같은 목표를 그 수준에 맞는 문장으로 다시 읽을 수 있어요.",
-             "7장으로 한 이유는 일주일(7일) 동안 날마다 다른 목표를 하나씩 만나도록 하기 위해서예요."],
+  cardWhy:  ["유엔 지속가능발전목표(SDGs) 17개 목표마다 학교급에 맞는 약속 문장 카드를 한 장씩 만들었어요. 17장을 모두 모으면 17색 바퀴가 완성돼요.",
+             "다짐은 유엔이 SDGs를 묶어 설명하는 5P(사람·지구·번영·평화·협력)에 따라 고를 수 있어요.",
+             "학교급(초·중·고)을 바꾸면 같은 목표를 그 수준에 맞는 문장으로 다시 읽을 수 있어요."],
   cardSource: "유엔 지속가능발전목표(SDGs, 2015)의 목표를<br>학교급에 맞게 풀어 쓴 문장이에요",
   whyTitle: "이론적 배경",
   why:      ["<b>공유지의 비극(하딘, 1968)과 공유자원 관리(오스트롬)</b> · 개인의 합리적 선택이 공동의 손실로 이어질 수 있지만, 서로 보이는 약속과 협력이 이를 막아요. → 전교생의 실천이 하나의 그림에 쌓여 <b>협력이 눈에 보이게</b> 했어요.",
              "<b>실행 의도(골위처)</b> · '무엇을 하겠다'고 구체적으로 약속하면 실천 가능성이 높아져요. → 다짐을 직접 고르고 약속하는 단계를 두었어요.",
-             "<b>사회적 규범과 넛지(행동경제학)</b> · 다른 사람도 함께한다는 신호가 행동을 바꿔요. → 실시간으로 늘어나는 조각 수와 온도계로 보여 줘요.",
+             "<b>사회적 규범과 넛지(행동경제학)</b> · 다른 사람도 함께한다는 신호가 행동을 바꿔요. → 실시간으로 늘어나는 조각 수와 17색 실천 게이지로 보여 줘요.",
+             "<b>유엔 5P 프레임(2015)</b> · 17개 목표를 사람(People)·지구(Planet)·번영(Prosperity)·평화(Peace)·협력(Partnership)으로 묶어 봐요. → 다짐 영역을 5P로 나눠 <b>목표 사이의 연결</b>이 보이게 했어요.",
              "<b>세계시민교육 3영역(유네스코)</b> · 인지 → 사회·정서 → 행동. → <b>학습하기</b>(인지) → <b>SDGs 문장 카드</b>(가치) → <b>실천 다짐</b>(행동)으로 이어져요.",
              "<b>지속가능발전교육(ESD)</b> · 지식을 넘어 지속 가능한 삶을 실천하는 역량을 길러요. → 초·중·고 수준별 학습과 실천을 한 앱에 담았어요."],
   makers:   ["초·중·고 누구나 쓸 수 있도록 만든 오픈 소스 교육용 웹앱이에요.",
              "제작 과정에서 생성형 AI를 활용했고, 모든 내용은 교사가 검토했어요.",
              "학교 이름·문장·그림을 바꿔 우리 학교에 맞게 고쳐 쓰세요. (README 참고)"],
-  schoolName: "1.5℃ 지구 한 조각 정원",
-  address:  "파리협정 1.5℃를 지키는 실천 다짐",
-  footer:   "1.5℃ 지구 한 조각 정원 · 성장 정원 오픈 소스 기반 · CC BY-NC-SA 4.0"
+  schoolName: "SDGs 17 조각 정원",
+  address:  "SDGs 17개 목표를 채우는 실천 다짐",
+  footer:   "SDGs 17 조각 정원 · 성장 정원 오픈 소스 기반 · CC BY-NC-SA 4.0"
 };
 /* ===== 숫자·다짐 설정 ===== */
 const GOAL = 300, BOOK = 3, TOTAL = GOAL/BOOK;   // 앨범 1권 = GOAL조각, 그림 BOOK점. GOAL은 BOOK으로 나누어떨어지게 (그림 1점 = TOTAL조각)
@@ -362,41 +412,12 @@ const PICTURES = ["pic1.png","pic2.png","pic3.png"]; // 완성될 그림 3점 (�
 const MILESTONES = [30,60,90];
 const SHARE_URL_FIXED = "";   // 비워 두면 지금 주소를 그대로 공유해요   // 친구에게 보낼 정원 주소 (서버판은 자동으로 지금 주소를 써요)
 const GHOST = 0.16;                            // 빈 칸 뒤에 비치는 완성할 그림의 진하기 (0 = 안 보임, 1 = 선명)
-const ROUTINES_BY = {   // ★ 학교급별 실천 다짐 (c = 선물 카드 번호 0~6)
-  e: {energy:{name:"기후·에너지", em:"🌍", routines:[{t:"안 쓰는 불 끄기", c:1}, {t:"가까운 길은 걸어가기", c:3}, {t:"친구에게 실천 하나 알려 주기", c:6}]}, resource:{name:"자원·소비", em:"♻️", routines:[{t:"급식 남기지 않기", c:2}, {t:"분리배출 제대로 하기", c:2}, {t:"이면지에 그림 그리기", c:5}]}, life:{name:"생명·물", em:"🌱", routines:[{t:"양치할 때 컵 쓰기", c:0}, {t:"교실 화분에 물 주기", c:5}, {t:"길에 떨어진 쓰레기 줍기", c:4}]}},
-  m: {energy:{name:"기후·에너지", em:"🌍", routines:[{t:"쓰지 않는 플러그 뽑기", c:1}, {t:"대중교통·자전거 이용하기", c:3}, {t:"냉난방 적정 온도 지키기", c:3}]}, resource:{name:"자원·소비", em:"♻️", routines:[{t:"일회용 컵 대신 텀블러 쓰기", c:2}, {t:"꼭 필요한 물건만 사기", c:2}, {t:"종이 아껴 쓰기", c:5}]}, life:{name:"생명·물", em:"🌱", routines:[{t:"샤워 시간 5분 줄이기", c:0}, {t:"플라스틱 빨대 거절하기", c:4}, {t:"실천 방법 친구와 나누기", c:6}]}},
-  h: {energy:{name:"기후·에너지", em:"🌍", routines:[{t:"대중교통으로 탄소 발자국 줄이기", c:3}, {t:"대기 전력 차단하기", c:1}, {t:"기후 뉴스 하나 읽고 원인 찾아보기", c:3}]}, resource:{name:"자원·소비", em:"♻️", routines:[{t:"친환경 인증 제품 고르기", c:2}, {t:"중고 거래·나눔으로 다시 쓰기", c:2}, {t:"종이 대신 디지털 노트 쓰기", c:5}]}, life:{name:"생명·물", em:"🌱", routines:[{t:"물 발자국 줄이는 소비 실천", c:0}, {t:"미세플라스틱 줄이는 생활 실천", c:4}, {t:"학급에 환경 실천 제안하기", c:6}]}},
-};
+const ROUTINES_BY = {"e": {"people": {"name": "사람 · 목표 1~5", "em": "🤲", "routines": [{"t": "안 쓰는 학용품 나눔 상자에 넣기", "c": 0}, {"t": "급식 감사히 먹고 남기지 않기", "c": 1}, {"t": "하루 30분 몸 움직이기", "c": 2}, {"t": "친구에게 모르는 것 알려 주기", "c": 3}, {"t": "'남자답게·여자답게' 대신 '나답게' 말하기", "c": 4}]}, "planet": {"name": "지구 · 목표 6·12~15", "em": "🌱", "routines": [{"t": "양치할 때 컵 쓰기", "c": 5}, {"t": "분리배출 제대로 하기", "c": 11}, {"t": "가까운 길은 걸어가기", "c": 12}, {"t": "길에 떨어진 쓰레기 줍기", "c": 13}, {"t": "이면지 쓰고 교실 화분 돌보기", "c": 14}]}, "prosperity": {"name": "번영 · 목표 7~11", "em": "🏙️", "routines": [{"t": "안 쓰는 불 끄기", "c": 6}, {"t": "집안일 하나 돕고 고마움 말하기", "c": 7}, {"t": "고장 난 물건 고쳐 쓰는 방법 찾기", "c": 8}, {"t": "혼자 있는 친구에게 먼저 말 걸기", "c": 9}, {"t": "놀이터·도서관 아껴 쓰기", "c": 10}]}, "peace": {"name": "평화·협력 · 목표 16~17", "em": "🕊️", "routines": [{"t": "다툼은 말로 풀고 먼저 사과하기", "c": 15}, {"t": "친구에게 실천 하나 알려 주기", "c": 16}]}}, "m": {"people": {"name": "사람 · 목표 1~5", "em": "🤲", "routines": [{"t": "나눔 캠페인 하나 참여하기", "c": 0}, {"t": "먹을 만큼만 받아 음식물 쓰레기 줄이기", "c": 1}, {"t": "잠·운동·마음 챙김 하나 실천하기", "c": 2}, {"t": "모둠에서 모두가 말할 기회 만들기", "c": 3}, {"t": "성별 고정관념 표현 바꿔 말하기", "c": 4}]}, "planet": {"name": "지구 · 목표 6·12~15", "em": "🌱", "routines": [{"t": "샤워 시간 5분 줄이기", "c": 5}, {"t": "일회용 컵 대신 텀블러 쓰기", "c": 11}, {"t": "냉난방 적정 온도 지키기", "c": 12}, {"t": "플라스틱 빨대 거절하기", "c": 13}, {"t": "종이 아껴 쓰기", "c": 14}]}, "prosperity": {"name": "번영 · 목표 7~11", "em": "🏙️", "routines": [{"t": "쓰지 않는 플러그 뽑기", "c": 6}, {"t": "일하는 분들께 감사 인사하기", "c": 7}, {"t": "생활 속 불편을 풀 아이디어 적기", "c": 8}, {"t": "차별하는 말 들으면 바로잡기", "c": 9}, {"t": "동네의 위험한 곳 찾아 알리기", "c": 10}]}, "peace": {"name": "평화·협력 · 목표 16~17", "em": "🕊️", "routines": [{"t": "학급 규칙 지키고 의견은 회의에서 말하기", "c": 15}, {"t": "실천 방법 친구와 나누기", "c": 16}]}}, "h": {"people": {"name": "사람 · 목표 1~5", "em": "🤲", "routines": [{"t": "빈곤의 원인 기사 하나 읽고 정리하기", "c": 0}, {"t": "로컬푸드·제철 음식 선택하기", "c": 1}, {"t": "친구의 마음 건강 살피고 안부 묻기", "c": 2}, {"t": "배운 내용 친구와 함께 공부하기", "c": 3}, {"t": "성평등 관점으로 미디어 하나 비판적으로 보기", "c": 4}]}, "planet": {"name": "지구 · 목표 6·12~15", "em": "🌱", "routines": [{"t": "물 발자국 줄이는 소비 실천", "c": 5}, {"t": "친환경 인증 제품 고르기", "c": 11}, {"t": "대중교통으로 탄소 발자국 줄이기", "c": 12}, {"t": "미세플라스틱 줄이는 생활 실천", "c": 13}, {"t": "디지털 노트로 종이 사용 줄이기", "c": 14}]}, "prosperity": {"name": "번영 · 목표 7~11", "em": "🏙️", "routines": [{"t": "대기 전력 차단하기", "c": 6}, {"t": "공정무역·윤리적 제품 고르기", "c": 7}, {"t": "기술로 사회문제 푼 사례 찾아보기", "c": 8}, {"t": "약자를 위한 제도 하나 조사하기", "c": 9}, {"t": "우리 지역 문제를 지자체에 제안하기", "c": 10}]}, "peace": {"name": "평화·협력 · 목표 16~17", "em": "🕊️", "routines": [{"t": "토론에서 근거로 말하고 다른 의견 존중하기", "c": 15}, {"t": "학급에 SDGs 실천 제안하기", "c": 16}]}}};   // ★ 학교급별 실천 다짐 · 유엔 5P(사람·지구·번영·평화·협력) 묶음, c = 목표 번호-1
 
-const CARDS_BY = {   // ★ 학교급별 SDGs 문장 카드 7장 (tip = 제목, o = 풀어 쓴 문장, s = 출처)
-  e: [
-    {tip:"물을 아껴요", o:"깨끗한 물은 모든 사람에게 꼭 필요해요. 내가 아낀 물 한 컵이 누군가의 마실 물이 될 수 있어요.", s:"지속가능발전목표(SDGs) 목표 6 · 깨끗한 물과 위생"},
-    {tip:"불을 꺼요", o:"전기를 만들 때 지구가 더워지는 연기가 나와요. 안 쓰는 불을 끄면 지구가 조금 덜 더워져요.", s:"지속가능발전목표(SDGs) 목표 7 · 모두를 위한 깨끗한 에너지"},
-    {tip:"남기지 않아요", o:"음식과 물건을 필요한 만큼만 쓰면 버려지는 쓰레기가 줄어들어요.", s:"지속가능발전목표(SDGs) 목표 12 · 지속가능한 소비와 생산"},
-    {tip:"지구 온도를 지켜요", o:"지구가 점점 더워지고 있어요. 걷고, 아끼고, 나누는 작은 행동이 지구의 열을 식혀요.", s:"지속가능발전목표(SDGs) 목표 13 · 기후변화 대응"},
-    {tip:"바다를 지켜요", o:"길에 버린 쓰레기는 바다로 흘러가 물고기와 거북이를 아프게 해요.", s:"지속가능발전목표(SDGs) 목표 14 · 해양 생태계 보전"},
-    {tip:"숲을 지켜요", o:"종이는 나무로 만들어요. 종이를 아끼면 숲과 그 숲에 사는 동물의 집을 지킬 수 있어요.", s:"지속가능발전목표(SDGs) 목표 15 · 육상 생태계 보호"},
-    {tip:"함께하면 더 커요", o:"혼자 하면 작은 힘도 친구와 함께하면 커져요. 세계 여러 나라도 함께 약속했어요.", s:"지속가능발전목표(SDGs) 목표 17 · 지구촌 협력"}
-  ],
-  m: [
-    {tip:"물은 모두의 권리예요", o:"세계에는 아직 안전한 물을 마시지 못하는 사람들이 많아요. 물을 아끼고 깨끗이 지키는 일은 모두의 권리를 지키는 일이에요.", s:"지속가능발전목표(SDGs) 목표 6 · 깨끗한 물과 위생"},
-    {tip:"에너지를 아껴요", o:"전기의 많은 부분은 화석 연료를 태워 만들어요. 에너지를 아끼면 온실가스를 줄이고 기후 변화를 늦출 수 있어요.", s:"지속가능발전목표(SDGs) 목표 7 · 모두를 위한 깨끗한 에너지"},
-    {tip:"필요한 만큼 소비해요", o:"많이 사고 쉽게 버리는 생활은 자원을 빨리 줄어들게 해요. 꼭 필요한 것을 오래 쓰는 소비가 지속가능한 생활이에요.", s:"지속가능발전목표(SDGs) 목표 12 · 지속가능한 소비와 생산"},
-    {tip:"기후 변화에 대응해요", o:"기후 변화는 폭염·홍수·가뭄을 늘려요. 원인을 줄이는 노력과 변화에 대비하는 노력이 함께 필요해요.", s:"지속가능발전목표(SDGs) 목표 13 · 기후변화 대응"},
-    {tip:"바다 생태계를 지켜요", o:"버려진 플라스틱은 잘게 부서져 미세플라스틱이 되고, 다시 우리 식탁으로 돌아와요.", s:"지속가능발전목표(SDGs) 목표 14 · 해양 생태계 보전"},
-    {tip:"숲과 생물을 지켜요", o:"숲은 이산화탄소를 흡수하고 수많은 생물의 터전이 돼요. 종이를 아끼는 일도 숲을 지키는 실천이에요.", s:"지속가능발전목표(SDGs) 목표 15 · 육상 생태계 보호"},
-    {tip:"함께해야 풀려요", o:"환경 문제는 국경을 넘어 영향을 줘요. 개인·기업·정부·국제 사회가 함께 협력해야 해결할 수 있어요.", s:"지속가능발전목표(SDGs) 목표 17 · 지구촌 협력"}
-  ],
-  h: [
-    {tip:"물 발자국을 생각해요", o:"우리가 쓰는 물건을 만드는 데에도 많은 물이 들어가요. 물 발자국을 줄이는 소비는 세대 내·세대 간 형평성을 지키는 선택이에요.", s:"지속가능발전목표(SDGs) 목표 6 · 깨끗한 물과 위생"},
-    {tip:"에너지 전환에 참여해요", o:"화석 연료 중심의 에너지는 탄소 배출이라는 부정적 외부효과를 낳아요. 에너지 절약과 재생 에너지 확대는 그 비용을 줄이는 길이에요.", s:"지속가능발전목표(SDGs) 목표 7 · 모두를 위한 깨끗한 에너지"},
-    {tip:"책임 있게 소비하고 생산해요", o:"가격에 반영되지 않은 환경 비용이 있을 때 시장은 과다 생산을 낳아요. 친환경 인증과 윤리적 소비는 시장에 다른 신호를 보내요.", s:"지속가능발전목표(SDGs) 목표 12 · 지속가능한 소비와 생산"},
-    {tip:"기후 위기에 함께 대응해요", o:"기후 변화의 피해는 원인 제공이 적은 지역과 미래 세대에게 더 크게 돌아가요. 감축과 적응, 기후 정의를 함께 고민해야 해요.", s:"지속가능발전목표(SDGs) 목표 13 · 기후변화 대응"},
-    {tip:"바다는 모두의 공유지예요", o:"공해(公海)의 어족 자원과 바다 환경은 누구나 쓸 수 있지만 아무도 책임지지 않기 쉬운 공유 자원이에요. 공유지의 비극을 막으려면 규칙과 협력이 필요해요.", s:"지속가능발전목표(SDGs) 목표 14 · 해양 생태계 보전"},
-    {tip:"생태계의 가치를 지켜요", o:"숲이 주는 맑은 공기와 탄소 흡수는 긍정적 외부효과예요. 시장이 그 가치를 다 반영하지 못하기에 보전 정책과 시민의 실천이 함께 필요해요.", s:"지속가능발전목표(SDGs) 목표 15 · 육상 생태계 보호"},
-    {tip:"협력으로 지속가능성을 실현해요", o:"오스트롬은 공동체가 규칙과 신뢰로 공유 자원을 지켜 낼 수 있음을 보였어요. 지속가능한 미래는 개인·정부·국제 사회의 협력으로 완성돼요.", s:"지속가능발전목표(SDGs) 목표 17 · 지구촌 협력"}
-  ],
-};
+const CARDS_BY = {"e": [{"tip": "나누면 함께 웃어요", "o": "세계에는 하루하루 살기도 힘든 친구들이 있어요. 작은 나눔이 누군가에게 큰 힘이 돼요.", "s": "지속가능발전목표(SDGs) 목표 1 · 빈곤 퇴치"}, {"tip": "음식을 소중히 해요", "o": "지구 어딘가에는 배고픈 친구들이 있어요. 음식을 남기지 않고 감사히 먹는 것도 약속이에요.", "s": "지속가능발전목표(SDGs) 목표 2 · 기아 종식"}, {"tip": "몸과 마음이 튼튼해요", "o": "잘 먹고, 잘 자고, 몸을 움직이면 몸과 마음이 튼튼해져요.", "s": "지속가능발전목표(SDGs) 목표 3 · 건강과 웰빙"}, {"tip": "함께 배우면 즐거워요", "o": "모든 어린이는 학교에서 배울 권리가 있어요. 친구와 함께 배우면 모두가 자라요.", "s": "지속가능발전목표(SDGs) 목표 4 · 양질의 교육"}, {"tip": "나답게, 너답게", "o": "남자라서, 여자라서 할 수 없는 일은 없어요. 모두가 하고 싶은 일을 꿈꿀 수 있어요.", "s": "지속가능발전목표(SDGs) 목표 5 · 성평등"}, {"tip": "물을 아껴요", "o": "깨끗한 물은 모든 사람에게 꼭 필요해요. 내가 아낀 물 한 컵이 누군가의 마실 물이 될 수 있어요.", "s": "지속가능발전목표(SDGs) 목표 6 · 깨끗한 물과 위생"}, {"tip": "불을 꺼요", "o": "전기를 만들 때 지구가 더워지는 연기가 나와요. 안 쓰는 불을 끄면 지구가 조금 덜 더워져요.", "s": "지속가능발전목표(SDGs) 목표 7 · 모두를 위한 깨끗한 에너지"}, {"tip": "모든 일은 소중해요", "o": "우리 주변의 모든 일하는 사람 덕분에 생활이 편해요. 고마운 마음을 표현해요.", "s": "지속가능발전목표(SDGs) 목표 8 · 양질의 일자리와 경제성장"}, {"tip": "고쳐 쓰고 새로 생각해요", "o": "새로운 생각과 기술은 생활을 더 편하게 만들어요. 고쳐 쓰는 아이디어도 멋진 발명이에요.", "s": "지속가능발전목표(SDGs) 목표 9 · 산업·혁신·사회기반시설"}, {"tip": "모두 함께해요", "o": "생김새나 사는 곳이 달라도 우리는 모두 소중해요. 혼자인 친구가 없도록 함께해요.", "s": "지속가능발전목표(SDGs) 목표 10 · 불평등 감소"}, {"tip": "우리 동네를 아껴요", "o": "놀이터, 도서관, 공원은 모두가 함께 쓰는 곳이에요. 아껴 쓰면 오래오래 함께 쓸 수 있어요.", "s": "지속가능발전목표(SDGs) 목표 11 · 지속가능한 도시와 공동체"}, {"tip": "남기지 않아요", "o": "음식과 물건을 필요한 만큼만 쓰면 버려지는 쓰레기가 줄어들어요.", "s": "지속가능발전목표(SDGs) 목표 12 · 책임감 있는 소비와 생산"}, {"tip": "지구 온도를 지켜요", "o": "지구가 점점 더워지고 있어요. 걷고, 아끼고, 나누는 작은 행동이 지구의 열을 식혀요.", "s": "지속가능발전목표(SDGs) 목표 13 · 기후변화 대응"}, {"tip": "바다를 지켜요", "o": "길에 버린 쓰레기는 바다로 흘러가 물고기와 거북이를 아프게 해요.", "s": "지속가능발전목표(SDGs) 목표 14 · 해양 생태계 보전"}, {"tip": "숲을 지켜요", "o": "종이는 나무로 만들어요. 종이를 아끼면 숲과 그 숲에 사는 동물의 집을 지킬 수 있어요.", "s": "지속가능발전목표(SDGs) 목표 15 · 육상 생태계 보호"}, {"tip": "말로 풀어요", "o": "다툼이 생기면 때리거나 놀리지 않고 말로 풀어요. 먼저 사과하는 용기가 평화를 만들어요.", "s": "지속가능발전목표(SDGs) 목표 16 · 평화·정의·강력한 제도"}, {"tip": "함께하면 더 커요", "o": "혼자 하면 작은 힘도 친구와 함께하면 커져요. 세계 여러 나라도 함께 약속했어요.", "s": "지속가능발전목표(SDGs) 목표 17 · 지구촌 협력"}], "m": [{"tip": "빈곤은 모두의 문제예요", "o": "빈곤은 교육·건강·일자리의 기회를 빼앗아요. 나눔과 함께 빈곤을 만드는 구조를 바꾸는 노력이 필요해요.", "s": "지속가능발전목표(SDGs) 목표 1 · 빈곤 퇴치"}, {"tip": "굶주림 없는 세상", "o": "세계는 모두가 먹을 만큼 식량을 만들지만, 버려지거나 고르게 나뉘지 않아 굶주리는 사람이 생겨요.", "s": "지속가능발전목표(SDGs) 목표 2 · 기아 종식"}, {"tip": "건강은 모두의 권리예요", "o": "건강하게 살 권리는 누구에게나 있어요. 몸의 건강만큼 마음의 건강도 함께 돌봐야 해요.", "s": "지속가능발전목표(SDGs) 목표 3 · 건강과 웰빙"}, {"tip": "배움은 모두의 권리예요", "o": "세계에는 아직 학교에 가지 못하는 아이들이 있어요. 모두에게 공평한 배움의 기회가 필요해요.", "s": "지속가능발전목표(SDGs) 목표 4 · 양질의 교육"}, {"tip": "성별로 나누지 않아요", "o": "성별 고정관념은 사람의 가능성을 좁혀요. 서로를 한 사람으로 존중하는 것이 성평등의 시작이에요.", "s": "지속가능발전목표(SDGs) 목표 5 · 성평등"}, {"tip": "물은 모두의 권리예요", "o": "세계에는 아직 안전한 물을 마시지 못하는 사람들이 많아요. 물을 아끼고 깨끗이 지키는 일은 모두의 권리를 지키는 일이에요.", "s": "지속가능발전목표(SDGs) 목표 6 · 깨끗한 물과 위생"}, {"tip": "에너지를 아껴요", "o": "전기의 많은 부분은 화석 연료를 태워 만들어요. 에너지를 아끼면 온실가스를 줄이고 기후 변화를 늦출 수 있어요.", "s": "지속가능발전목표(SDGs) 목표 7 · 모두를 위한 깨끗한 에너지"}, {"tip": "괜찮은 일자리", "o": "일하는 사람이 안전하고 정당한 대가를 받아야 경제도 지속가능하게 성장할 수 있어요.", "s": "지속가능발전목표(SDGs) 목표 8 · 양질의 일자리와 경제성장"}, {"tip": "기술로 문제를 풀어요", "o": "튼튼한 도로·통신 같은 기반 시설과 새로운 기술은 모두의 삶을 바꾸는 힘이 있어요.", "s": "지속가능발전목표(SDGs) 목표 9 · 산업·혁신·사회기반시설"}, {"tip": "차별 없는 세상", "o": "출신·장애·경제적 형편 때문에 기회가 달라지면 불평등이 커져요. 차별하는 말을 바로잡는 것부터 시작해요.", "s": "지속가능발전목표(SDGs) 목표 10 · 불평등 감소"}, {"tip": "안전한 마을을 만들어요", "o": "모두가 안전하고 편리하게 사는 도시와 마을은 주민의 관심과 참여로 만들어져요.", "s": "지속가능발전목표(SDGs) 목표 11 · 지속가능한 도시와 공동체"}, {"tip": "필요한 만큼 소비해요", "o": "많이 사고 쉽게 버리는 생활은 자원을 빨리 줄어들게 해요. 꼭 필요한 것을 오래 쓰는 소비가 지속가능한 생활이에요.", "s": "지속가능발전목표(SDGs) 목표 12 · 책임감 있는 소비와 생산"}, {"tip": "기후 변화에 대응해요", "o": "기후 변화는 폭염·홍수·가뭄을 늘려요. 원인을 줄이는 노력과 변화에 대비하는 노력이 함께 필요해요.", "s": "지속가능발전목표(SDGs) 목표 13 · 기후변화 대응"}, {"tip": "바다 생태계를 지켜요", "o": "버려진 플라스틱은 잘게 부서져 미세플라스틱이 되고, 다시 우리 식탁으로 돌아와요.", "s": "지속가능발전목표(SDGs) 목표 14 · 해양 생태계 보전"}, {"tip": "숲과 생물을 지켜요", "o": "숲은 이산화탄소를 흡수하고 수많은 생물의 터전이 돼요. 종이를 아끼는 일도 숲을 지키는 실천이에요.", "s": "지속가능발전목표(SDGs) 목표 15 · 육상 생태계 보호"}, {"tip": "정의로운 약속", "o": "규칙과 제도가 공정하게 지켜질 때 모두가 안심하고 살 수 있어요. 의견은 정해진 절차로 말해요.", "s": "지속가능발전목표(SDGs) 목표 16 · 평화·정의·강력한 제도"}, {"tip": "함께해야 풀려요", "o": "환경 문제는 국경을 넘어 영향을 줘요. 개인·기업·정부·국제 사회가 함께 협력해야 해결할 수 있어요.", "s": "지속가능발전목표(SDGs) 목표 17 · 지구촌 협력"}], "h": [{"tip": "빈곤의 구조를 봐요", "o": "빈곤은 개인의 노력만으로 벗어나기 어려운 구조적 문제예요. 사회 안전망과 공정한 분배가 빈곤의 대물림을 끊어요.", "s": "지속가능발전목표(SDGs) 목표 1 · 빈곤 퇴치"}, {"tip": "식량 정의를 생각해요", "o": "기아는 생산량보다 분배와 접근의 문제예요. 지속가능한 농업과 음식물 쓰레기 줄이기가 함께 필요해요.", "s": "지속가능발전목표(SDGs) 목표 2 · 기아 종식"}, {"tip": "건강 불평등을 줄여요", "o": "소득과 지역에 따라 건강 수준이 달라지는 건강 불평등이 있어요. 보편적 의료 보장과 공동체의 돌봄이 필요해요.", "s": "지속가능발전목표(SDGs) 목표 3 · 건강과 웰빙"}, {"tip": "평생 배우는 시민이 돼요", "o": "양질의 교육은 빈곤의 대물림을 끊고 민주 시민을 길러요. 배움은 학교를 넘어 평생 이어져요.", "s": "지속가능발전목표(SDGs) 목표 4 · 양질의 교육"}, {"tip": "실질적 성평등을 이뤄요", "o": "법이 평등해도 임금·돌봄·대표성에서 격차가 남아 있어요. 형식적 평등을 넘어 실질적 평등을 고민해야 해요.", "s": "지속가능발전목표(SDGs) 목표 5 · 성평등"}, {"tip": "물 발자국을 생각해요", "o": "우리가 쓰는 물건을 만드는 데에도 많은 물이 들어가요. 물 발자국을 줄이는 소비는 세대 내·세대 간 형평성을 지키는 선택이에요.", "s": "지속가능발전목표(SDGs) 목표 6 · 깨끗한 물과 위생"}, {"tip": "에너지 전환에 참여해요", "o": "화석 연료 중심의 에너지는 탄소 배출이라는 부정적 외부효과를 낳아요. 에너지 절약과 재생 에너지 확대는 그 비용을 줄이는 길이에요.", "s": "지속가능발전목표(SDGs) 목표 7 · 모두를 위한 깨끗한 에너지"}, {"tip": "괜찮은 일과 공정한 성장", "o": "양질의 일자리는 노동권 보장과 공정한 보상을 포함해요. 성장의 열매가 고르게 나뉘어야 지속가능해요.", "s": "지속가능발전목표(SDGs) 목표 8 · 양질의 일자리와 경제성장"}, {"tip": "포용적 혁신을 고민해요", "o": "기술 혁신은 생산성을 높이지만 디지털 격차를 만들 수도 있어요. 모두가 누리는 포용적 혁신이 필요해요.", "s": "지속가능발전목표(SDGs) 목표 9 · 산업·혁신·사회기반시설"}, {"tip": "불평등을 줄이는 제도", "o": "불평등은 사회 통합을 해쳐요. 누진세·사회 보장·적극적 우대 조치 같은 제도가 격차를 줄여요.", "s": "지속가능발전목표(SDGs) 목표 10 · 불평등 감소"}, {"tip": "지속가능한 도시를 만들어요", "o": "도시화는 주거·교통·환경 문제를 낳아요. 주민 참여와 공간 정의를 고려한 도시 계획이 필요해요.", "s": "지속가능발전목표(SDGs) 목표 11 · 지속가능한 도시와 공동체"}, {"tip": "책임 있게 소비하고 생산해요", "o": "가격에 반영되지 않은 환경 비용이 있을 때 시장은 과다 생산을 낳아요. 친환경 인증과 윤리적 소비는 시장에 다른 신호를 보내요.", "s": "지속가능발전목표(SDGs) 목표 12 · 책임감 있는 소비와 생산"}, {"tip": "기후 위기에 함께 대응해요", "o": "기후 변화의 피해는 원인 제공이 적은 지역과 미래 세대에게 더 크게 돌아가요. 감축과 적응, 기후 정의를 함께 고민해야 해요.", "s": "지속가능발전목표(SDGs) 목표 13 · 기후변화 대응"}, {"tip": "바다는 모두의 공유지예요", "o": "공해(公海)의 어족 자원과 바다 환경은 누구나 쓸 수 있지만 아무도 책임지지 않기 쉬운 공유 자원이에요. 공유지의 비극을 막으려면 규칙과 협력이 필요해요.", "s": "지속가능발전목표(SDGs) 목표 14 · 해양 생태계 보전"}, {"tip": "생태계의 가치를 지켜요", "o": "숲이 주는 맑은 공기와 탄소 흡수는 긍정적 외부효과예요. 시장이 그 가치를 다 반영하지 못하기에 보전 정책과 시민의 실천이 함께 필요해요.", "s": "지속가능발전목표(SDGs) 목표 15 · 육상 생태계 보호"}, {"tip": "평화와 정의, 믿을 수 있는 제도", "o": "적극적 평화는 폭력이 없는 상태를 넘어 차별과 억압 같은 구조적 폭력까지 없는 상태예요. 투명하고 책임 있는 제도가 그 바탕이에요.", "s": "지속가능발전목표(SDGs) 목표 16 · 평화·정의·강력한 제도"}, {"tip": "협력으로 지속가능성을 실현해요", "o": "오스트롬은 공동체가 규칙과 신뢰로 공유 자원을 지켜 낼 수 있음을 보였어요. 지속가능한 미래는 개인·정부·국제 사회의 협력으로 완성돼요.", "s": "지속가능발전목표(SDGs) 목표 17 · 지구촌 협력"}]};   // ★ 학교급별 SDGs 문장 카드 17장 (목표 1~17 순서)
+const SDG_COL = ["#E5243B", "#DDA63A", "#4C9F38", "#C5192D", "#FF3A21", "#26BDE2", "#FCC30B", "#A21942", "#FD6925", "#DD1367", "#FD9D24", "#BF8B2E", "#3F7E44", "#0A97D9", "#56C02B", "#00689D", "#19486A"];
+const SDG_SHORT = ["빈곤 퇴치", "기아 종식", "건강과 웰빙", "양질의 교육", "성평등", "깨끗한 물", "깨끗한 에너지", "좋은 일자리", "산업·혁신", "불평등 감소", "지속가능 도시", "책임 소비·생산", "기후 행동", "해양 생태계", "육상 생태계", "평화·정의", "파트너십"];
+const SDG_NAME = ["빈곤 퇴치", "기아 종식", "건강과 웰빙", "양질의 교육", "성평등", "깨끗한 물과 위생", "모두를 위한 깨끗한 에너지", "양질의 일자리와 경제성장", "산업·혁신·사회기반시설", "불평등 감소", "지속가능한 도시와 공동체", "책임감 있는 소비와 생산", "기후변화 대응", "해양 생태계 보전", "육상 생태계 보호", "평화·정의·강력한 제도", "지구촌 협력"];
 let ROUTINES = ROUTINES_BY.e, CARDS = CARDS_BY.e;
 
 const DONE_MSG = `${GOAL}조각 완성! 하루씩 자신을 키워 온 여러분, ${SCHOOL.people} 모두를 진심으로 축하해요!`;
@@ -412,6 +433,7 @@ const Shared = {   // 모두가 함께 보는 값 (서버판에서 교체)
 };
 let S = Shared.load();
 let Me = LS.get("earth_garden_me",{lv:"e",ch:null,dex:[],days:{},flowers:[],stars:0,last:null,asked:null});
+if(Me.v!==17){ const mp=[5,6,11,12,13,14,16]; Me.dex=(Me.dex||[]).map(i=>mp[i]).filter(x=>x!=null); Me.v=17; try{localStorage.setItem("earth_garden_me",JSON.stringify(Me));}catch(e){} }
 function saveMe(){ LS.set("earth_garden_me",Me); }
 const LV = { e:"초등", m:"중학", h:"고등" };
 function applyLevel(){ if(!LV[Me.lv]) Me.lv="e"; ROUTINES=ROUTINES_BY[Me.lv]; CARDS=CARDS_BY[Me.lv]; const ei=document.querySelector(".bank img"); if(ei) ei.src="emblem_"+Me.lv+".png"; }
@@ -517,8 +539,9 @@ function screenStart(){
     <button class="learnBtn" id="mLearn"><span class="li">📚</span><span><b>먼저 배워 보기</b><small>${LV[Me.lv]} · 3분 학습 + 확인 퀴즈</small></span><span class="ga">›</span></button>
     <p class="lead">실천 다짐 하나 = 퍼즐 한 조각 🧩<br><b>${TOTAL}조각</b>마다 그림 1점, <b>${GOAL}조각</b>이면 앨범 1권 완성!</p>
     <button class="big" id="go">🌍 실천 다짐하고,<br>퍼즐 한 조각 채우기!</button>
+    <button class="sdgBoard" id="mWheel" aria-label="나의 SDGs 17 판 열기"><div class="sbHead"><b>나의 SDGs 17 판</b><span>${Me.dex.length} / 17</span></div>${tileGrid()}<small>다짐하면 그 목표 칸에 색이 켜져요 · ${PPL()}</small></button>
     <div class="tiles">
-      <button id="mDex"><span class="ic">🎁</span>받은 SDGs 카드<small>${Me.dex.length} / 7장</small></button>
+      <button id="mDex"><span class="ic">🎁</span>받은 SDGs 카드<small>${Me.dex.length} / 17장</small></button>
       <button id="mPrev"><span class="ic">🎨</span>공동 완성할 그림<small>미리보기</small></button>
       <button id="mGal"><span class="ic">📖</span>완성 앨범<small>${Math.floor(S.gallery.length/BOOK)+1}권 · ${S.gallery.length%BOOK} / ${BOOK}점</small></button>
     </div>
@@ -531,7 +554,15 @@ function screenStart(){
   $("go").onclick=()=>{ AC(); bounce($("principal"),"hop"); Me.ch? screenArea() : screenChar(); };
   bindMini();
 }
-function bindMini(){ document.querySelectorAll(".lvsel button").forEach(b=>b.onclick=()=>{ Me.lv=b.dataset.lv; saveMe(); applyLevel(); screenStart(); toast(`${LV[Me.lv]} 버전으로 바꿨어요`,1600); }); if($("mLearn")) $("mLearn").onclick=()=>openInfo("learn"); if($("mEth")) $("mEth").onclick=()=>openInfo("ethics"); if($("mPrev")) $("mPrev").onclick=()=>openInfo("preview"); if($("mDex")){ $("mDex").onclick=()=>openInfo("dex"); $("mGal").onclick=()=>openInfo("gal"); } if($("mGuide")) $("mGuide").onclick=()=>openInfo("guide"); if($("shareLink2")) $("shareLink2").onclick=()=>shareGarden(); }
+function wheelSVG(sz){ const n=17, r=46, ri=27, cx=50, cy=50; let g="";
+  for(let i=0;i<n;i++){ const a0=(i/n)*2*Math.PI-Math.PI/2+0.012, a1=((i+1)/n)*2*Math.PI-Math.PI/2-0.012, on=Me.dex.includes(i);
+    const P=(rr,a)=>(cx+rr*Math.cos(a)).toFixed(2)+" "+(cy+rr*Math.sin(a)).toFixed(2);
+    g+=`<path d="M${P(r,a0)} A${r} ${r} 0 0 1 ${P(r,a1)} L${P(ri,a1)} A${ri} ${ri} 0 0 0 ${P(ri,a0)}Z" fill="${on?SDG_COL[i]:"#e6ebe7"}" stroke="#fff" stroke-width=".8"><title>목표 ${i+1} ${SDG_NAME[i]}</title></path>`; }
+  return `<svg viewBox="0 0 100 100" width="${sz}" height="${sz}" aria-label="SDGs 17개 목표 중 ${Me.dex.length}개 채움">${g}<circle cx="50" cy="50" r="24" fill="#fff"/><text x="50" y="49" text-anchor="middle" font-size="15" font-weight="900" fill="#1f3a2c" font-family="sans-serif">${Me.dex.length}</text><text x="50" y="62" text-anchor="middle" font-size="8.5" font-weight="800" fill="#6d8a76" font-family="sans-serif">/ 17</text></svg>`; }
+function tileGrid(){ let h=""; for(let i=0;i<17;i++){ const on=Me.dex.includes(i); h+=`<div class="sdt ${on?"on":""}" style="--c:${SDG_COL[i]}"><b>${i+1}</b><span>${SDG_SHORT[i]}</span>${on?'<i>✓</i>':''}</div>`; }
+  return `<div class="sdgGrid">${h}<div class="sdt logo">${wheelSVG(44)}<span>SDGs</span></div></div>`; }
+function PPL(){ const g=[["사람",[0,1,2,3,4]],["지구",[5,11,12,13,14]],["번영",[6,7,8,9,10]],["평화",[15]],["협력",[16]]]; return g.map(([n,a])=>`${n} ${a.filter(i=>Me.dex.includes(i)).length}/${a.length}`).join(" · "); }
+function bindMini(){ document.querySelectorAll(".lvsel button").forEach(b=>b.onclick=()=>{ Me.lv=b.dataset.lv; saveMe(); applyLevel(); screenStart(); toast(`${LV[Me.lv]} 버전으로 바꿨어요`,1600); }); if($("mLearn")) $("mLearn").onclick=()=>openInfo("learn"); if($("mEth")) $("mEth").onclick=()=>openInfo("ethics"); if($("mPrev")) $("mPrev").onclick=()=>openInfo("preview"); if($("mDex")){ $("mDex").onclick=()=>openInfo("dex"); $("mGal").onclick=()=>openInfo("gal"); } if($("mWheel")) $("mWheel").onclick=()=>openInfo("dex"); if($("mGuide")) $("mGuide").onclick=()=>openInfo("guide"); if($("shareLink2")) $("shareLink2").onclick=()=>shareGarden(); }
 function screenChar(){
   P.innerHTML=`${head(1,"나와 함께할 친구를 골라요","처음 한 번만 골라요")}
   <div class="grid2"><button class="opt" data-c="girl"><img src="mascot_girl.png" alt="">${SCHOOL.mascotA}</button><button class="opt" data-c="boy"><img src="mascot_boy.png" alt="">${SCHOOL.mascotB}</button></div>`;
@@ -540,7 +571,7 @@ function screenChar(){
 function screenArea(){
   $("bubble").style.display="none";
   P.innerHTML=`<button class="back" id="bk">← 처음</button><div style="height:30px"></div>${head(1,"지구를 위해<br>무엇을 실천할까요?",`${LV[Me.lv]} 버전`)}
-  <div class="grid3">${Object.entries(ROUTINES).map(([k,a])=>`<button class="opt" data-a="${k}"><span class="em">${a.em}</span>${a.name}</button>`).join("")}</div>`;
+  <div class="grid4">${Object.entries(ROUTINES).map(([k,a])=>`<button class="opt" data-a="${k}"><span class="em">${a.em}</span>${a.name}</button>`).join("")}</div>`;
   $("bk").onclick=screenStart;
   P.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ sel.area=b.dataset.a; screenRoutine(); });
 }
@@ -554,7 +585,7 @@ function screenRoutine(){
 function screenCard(){
   const c=CARDS[sel.routine.c];
   P.innerHTML=`<button class="back" id="bk">← 뒤로</button><div style="height:30px"></div>${head(2,`${SCHOOL.sage}가 주는 <span class=nwq><q>약속 문장 선물</q>이</span><br>도착했어요! 🎁`,"한 번씩 읽고 실천 약속!")}
-  <div class="card"><div class="gift">${SCHOOL.giftLine}</div>
+  <div class="card"><div class="gift">${SCHOOL.giftLine}</div><div class="sdgTile" style="--c:${SDG_COL[sel.routine.c]}"><b>${sel.routine.c+1}</b><span><small>SDGs 목표</small>${SDG_NAME[sel.routine.c]}</span></div>
     <div class="tip">${c.tip}</div><div class="orig"><em class="ol">${SCHOOL.origLabel}</em>${fmtO(c.o)}</div><div class="src">${c.s}</div></div>
   <p class="pledge">오늘 나의 실천 다짐 · <b>${sel.routine.t}</b></p>
   <button class="big" id="pledge" style="margin-top:6px">🤝 다짐합니다</button>`;
@@ -614,7 +645,7 @@ function endDemo(){
 
 /* ===== 공유·저장 ===== */
 function shareURL(){ return SHARE_URL_FIXED || (location.origin+location.pathname); }
-const SHARE_TEXT = `🌍 ${SCHOOL.title} — 실천 다짐 하나가 퍼즐 한 조각! 지구 온도 1.5℃를 함께 지켜요.`;
+const SHARE_TEXT = `🌍 ${SCHOOL.title} — 실천 다짐 하나가 퍼즐 한 조각! SDGs 17개 목표를 함께 채워요.`;
 async function shareGarden(){
   const url=shareURL();
   try{ if(navigator.share){ await navigator.share({title:SCHOOL.title, text:SHARE_TEXT, url}); return; } }catch(e){ if(e&&e.name==="AbortError") return; }
@@ -700,7 +731,7 @@ async function saveCardFile(){
   setTimeout(()=>toast("저장이 안 되면 이미지를 길게 눌러 저장해 주세요",2600),600);
 }
 async function shareCardFile(){ try{ const blob=await (await fetch(cardDataURL)).blob(); const file=new File([blob],"초록지구_약속카드.png",{type:"image/png"});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){ await navigator.share({files:[file], title:"나의 1.5℃ 약속 카드", text:SHARE_TEXT}); return true; } }catch(e){ if(e&&e.name==="AbortError") return true; } return false; }
+    if(navigator.canShare&&navigator.canShare({files:[file]})){ await navigator.share({files:[file], title:"나의 SDGs 약속 카드", text:SHARE_TEXT}); return true; } }catch(e){ if(e&&e.name==="AbortError") return true; } return false; }
 
 /* ===== 모달 ===== */
 function openInfo(kind){
@@ -708,10 +739,10 @@ function openInfo(kind){
   if(kind==="preview"){ const pc=curPic(); h+=`<h3>🎨 공동 완성할 그림 미리보기</h3><img src="${(pc&&pc._src)||PICTURES[0]}" alt="" style="width:100%;border-radius:8px;display:block"><p class="msgbox" style="text-align:center">ver${S.round+1} · ${SCHOOL.people}의 다짐 ${TOTAL}조각이 모이면 이 그림이 완성돼요!<br><b class="now">현재 ${S.count}조각</b></p><button class="demo" id="demo">▶ 완성되는 장면 미리 보기</button>`; }
   if(kind==="board"){ h+=`<h3>🎨 공동 완성할 그림 ${S.count}/${TOTAL}</h3><canvas id="bigBoard" width="1200" height="900"></canvas><p class="hint" style="margin-top:8px">한 사람의 다짐이 그림 세 칸씩 열어요</p>`; }
   if(kind==="done"){ const g=S.gallery[S.gallery.length-1]; h+=`<div class="celebrate"><h3>🎉 ver${g.round} 그림 완성!</h3><canvas id="doneBoard" width="1200" height="900"></canvas><p class="msg">${g.round%BOOK===0?DONE_MSG:`${TOTAL}조각 완성! 성장 다짐을 모아 준 ${SCHOOL.people} 모두 고마워요!`}</p><p class="hint"><b>ver${g.round}. 완성날짜는 ${ymd(g.date)}</b>입니다.<br>${g.round%BOOK===0?`📖 앨범 ${g.round/BOOK}권이 완성됐어요! 이제 ${g.round/BOOK+1}권 첫 그림 퍼즐 맞추기가 시작됩니다.`:"이제 다음 단계의 그림 퍼즐 맞추기가 시작됩니다."}</p>${demoSnap?'<button class="big" onclick="document.getElementById(\'x\').click()">미리보기 끝내기</button>':''}</div>`; }
-  if(kind==="dex"){ h+=`<h3>🎁 내가 받은 SDGs 약속 카드 ${Me.dex.length}/${CARDS.length}</h3><p class="msgbox" style="text-align:center;font-weight:800">일주일 동안 매일 한 장씩 모아 보세요 🌱</p><ul class="why">${SCHOOL.cardWhy.map(x=>`<li>${x}</li>`).join("")}</ul><div class="dex">${CARDS.map((c,i)=>Me.dex.includes(i)?`<div class="on"><span class="no">카드 ${i+1}</span><b>${c.tip}</b><p><em class="ol">${SCHOOL.origLabel}</em>${fmtO(c.o)}</p><small>${c.s}</small></div>`:`<div class="off"><span class="no">카드 ${i+1}</span><br>? 다짐하면 받을 수 있어요</div>`).join("")}</div><p class="hint" style="margin-top:10px;text-align:center;line-height:1.6">${SCHOOL.cardSource}</p>`; }
+  if(kind==="dex"){ h+=`<h3>🎁 내가 받은 SDGs 약속 카드 ${Me.dex.length}/${CARDS.length}</h3><p class="msgbox" style="text-align:center;font-weight:800">17개 목표 카드를 모두 모아 보세요 🌈</p><ul class="why">${SCHOOL.cardWhy.map(x=>`<li>${x}</li>`).join("")}</ul><div style="margin:8px 0">${tileGrid()}</div><div class="dex">${CARDS.map((c,i)=>Me.dex.includes(i)?`<div class="on"><span class="no" style="background:${SDG_COL[i]}">목표 ${i+1}</span><b>${c.tip}</b><p><em class="ol">${SCHOOL.origLabel}</em>${fmtO(c.o)}</p><small>${c.s}</small></div>`:`<div class="off"><span class="no">목표 ${i+1}</span><br>${SDG_NAME[i]} · 다짐하면 받을 수 있어요</div>`).join("")}</div><p class="hint" style="margin-top:10px;text-align:center;line-height:1.6">${SCHOOL.cardSource}</p>`; }
   if(kind==="garden"){ const days=[]; const now=new Date(); for(let i=27;i>=0;i--){ const d=new Date(now); d.setDate(now.getDate()-i); const k=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); days.push(`<div class="${Me.days[k]?"on":""}">${d.getDate()}${Me.days[k]?"<br>🌸":""}</div>`); }
     h+=`<h3>🌸 나의 다짐 기록</h3><p class="hint">이 휴대폰에서 한 다짐마다 꽃이 한 송이씩 피어요</p><div class="mygarden">${Me.flowers.length?Me.flowers.join(""):"아직 비어 있어요. 첫 다짐을 심어 봐요!"}</div><p class="hint" style="margin-top:8px">나의 다짐 ${Me.flowers.length}개 · 지킨 별 ★ ${Me.stars}</p><div class="cal">${days.join("")}</div>`; }
-  if(kind==="save"){ h+=`<h3>🎁 나의 1.5℃ 약속 카드</h3><div class="themes"><button data-t="xmas" class="${cardTheme==="xmas"?"on":""}">🎄 연말·크리스마스</button><button data-t="school" class="${cardTheme==="school"?"on":""}">🌿 정원 캐릭터·교표</button></div><img class="saveImg" id="cardImg" src="${cardDataURL}" alt="나의 성장 카드 이미지">
+  if(kind==="save"){ h+=`<h3>🎁 나의 SDGs 약속 카드</h3><div class="themes"><button data-t="xmas" class="${cardTheme==="xmas"?"on":""}">🎄 연말·크리스마스</button><button data-t="school" class="${cardTheme==="school"?"on":""}">🌿 정원 캐릭터·교표</button></div><img class="saveImg" id="cardImg" src="${cardDataURL}" alt="나의 성장 카드 이미지">
     <div class="shareRow"><button class="sv" id="dlCard">⬇ 기기에 저장</button><button class="sh" id="sendCard">💬 카톡으로<br>카드 선물하기</button></div>
     <div class="howSave">📱 <b>휴대폰</b>: 위 카드 이미지를 <b>길게 꾹 눌러</b> → <b>'이미지 저장'</b> 또는 <b>'사진에 추가'</b>를 고르세요.<br>💻 <b>컴퓨터</b>: 이미지에서 <b>마우스 오른쪽</b> → <b>'다른 이름으로 이미지 저장'</b></div>`; }
   if(kind==="share"){ h+=`<h3>💬 친구에게 정원 공유하기</h3><p class="hint">아래 주소를 복사해서 카톡·문자로 보내 주세요.</p>
@@ -728,7 +759,7 @@ function openInfo(kind){
       <div class="math"><div><b>1조각</b>다짐 1번</div><span>→</span><div><b>${TOTAL}조각</b>그림 1점</div><span>→</span><div class="gold"><b>${GOAL}조각</b>그림 ${BOOK}점<br>= 앨범 1권</div></div>
       <p class="note">${SCHOOL.numberStory} 1권이 끝나면 2권으로 이어져 완성 날짜와 함께 앨범에 차곡차곡 쌓여요.</p></section>
     <section><h4><i>3</i> 화면에서 보이는 것</h4>
-      <div class="legend"><div><b>🧩 ${SCHOOL.bankName}</b>지금 그림의 조각 수<br><small>예: 40 / ${TOTAL}</small></div><div class="red"><b>🌡️ 실천 온도계</b><small>예: ${TOTAL+40} / ${GOAL}</small></div>
+      <div class="legend"><div><b>🧩 ${SCHOOL.bankName}</b>지금 그림의 조각 수<br><small>예: 40 / ${TOTAL}</small></div><div class="red"><b>🌈 SDGs 실천 게이지</b><small>예: ${TOTAL+40} / ${GOAL}</small></div>
       <div><b>🎨 공동 완성할 그림</b>다짐할 때마다<br>그림이 조금씩 열려요</div>
       <div><b>🎁 받은 SDGs 카드</b>학교급별<br>약속 문장 ${CARDS.length}장</div></div></section>
     <section class="why2"><h4><i>4</i> ${SCHOOL.whyTitle}</h4>
@@ -759,7 +790,7 @@ $("modal").onclick=e=>{ if(e.target.id==="modal"){ $("modal").classList.remove("
 $("frame").onclick=()=>openInfo("board");
 
 /* ===== 학습하기 · AI 윤리 데이터 ===== */
-const LEARN = {"e": {"t": "지구를 지키는 약속", "slides": [["🌡️", "지구가 아파요", "여름은 점점 더 더워지고, 쓰레기는 늘어나고, 살 곳을 잃는 동물이 생기고 있어요.<br>우리가 쓰는 <b>전기·물·물건·음식</b>이 지구에 영향을 줘요."], ["🌱", "지속가능하다는 건?", "<b>지금의 우리</b>도, <b>나중에 태어날 친구들</b>도 깨끗한 지구에서 살 수 있게 하는 거예요.<br>그래서 오늘 아껴 쓰고, 다시 쓰고, 나누는 습관이 중요해요."], ["🤝", "세계가 함께한 17가지 약속", "세계 여러 나라가 <b>2030년까지 함께 지키기로 한 17가지 약속</b>이 있어요.<br>또 <b>지구 온도가 1.5℃보다 더 오르지 않게 하자</b>고 함께 약속했어요(파리협정). 이 앱 이름의 1.5℃가 바로 그 약속이에요.<br>깨끗한 물, 깨끗한 에너지, 바다와 숲 지키기도 그 약속에 들어 있어요.<br>한 사람의 실천은 작아도, <b>모두가 함께하면 지구가 바뀌어요.</b>"]], "q": [["지구를 지키는 생활에 가까운 것은 무엇일까요?", ["안 쓰는 교실 불 끄기", "물을 틀어 놓고 양치하기", "먹을 만큼보다 많이 받아 남기기"], 0, "맞아요! 안 쓰는 불을 끄면 전기를 아끼고 지구가 덜 더워져요."], ["‘지속가능하다’는 뜻에 가장 가까운 것은?", ["지금 우리만 편하게 사는 것", "나중의 친구들도 깨끗한 지구에서 살 수 있게 하는 것", "새 물건을 많이 사는 것"], 1, "맞아요! 지금과 미래를 함께 생각하는 거예요."]]}, "m": {"t": "환경 문제와 지속가능한 발전", "slides": [["🏭", "환경 문제는 왜 생길까?", "기후 변화, 자원 고갈, 쓰레기 문제의 큰 원인은 <b>화석 연료 사용</b>과 <b>대량 생산·대량 소비</b> 같은 인간 활동이에요.<br>환경 문제는 한 지역에 머물지 않고 <b>국경을 넘어</b> 영향을 줘요.<br>그래서 세계는 <b>파리협정(2015)</b>에서 지구 평균 기온 상승을 <b>1.5℃</b>로 억제하도록 함께 노력하기로 했어요."], ["⚖️", "지속가능한 발전", "미래 세대가 필요를 충족할 능력을 해치지 않으면서 <b>현재 세대의 필요를 충족하는 발전</b>이에요(1987, 「우리 공동의 미래」).<br><b>환경·사회·경제</b> 세 가지의 균형이 핵심이에요."], ["🎯", "지속가능발전목표(SDGs)", "2015년 유엔이 채택한 <b>17개 목표</b>로, 2030년까지 빈곤·불평등·기후 위기 같은 문제를 함께 해결하자는 약속이에요.<br>생각해 볼 질문 · <b>환경 문제는 왜 혼자 노력해서는 잘 해결되지 않을까요?</b>"]], "q": [["지속가능한 발전의 뜻으로 가장 알맞은 것은?", ["경제 성장을 가장 먼저 생각하는 발전", "미래 세대의 필요를 해치지 않으면서 현재 세대의 필요를 충족하는 발전", "환경 보호를 위해 개발을 모두 멈추는 것"], 1, "정답! 현재와 미래, 환경·사회·경제의 균형이 핵심이에요."], ["SDGs에 대한 설명으로 옳은 것은?", ["2015년 유엔이 채택한 17개 목표이다", "한 나라만 지키면 되는 약속이다", "환경 문제만 다룬다"], 0, "정답! 2030년까지 함께 이루기로 한 17개 목표예요. 환경뿐 아니라 빈곤·교육·불평등도 함께 다뤄요."]]}, "h": {"t": "외부효과와 공유지의 비극", "slides": [["🌏", "지속가능발전과 형평성", "지속가능발전은 환경·사회·경제의 균형을 추구하며, 현재 세대 안의 <b>세대 내 형평성</b>과 미래 세대를 고려하는 <b>세대 간 형평성</b>을 함께 다뤄요.<br>SDGs(2015)는 이를 17개 목표로 구체화했어요.<br>같은 해 <b>파리협정</b>은 산업화 이전 대비 지구 평균 기온 상승을 2℃보다 훨씬 낮게 유지하고 <b>1.5℃로 제한</b>하도록 노력하기로 했어요."], ["🏭", "외부효과", "어떤 경제 활동이 <b>의도하지 않게 제3자에게 이익이나 손해</b>를 주는데, 그 대가가 시장 가격에 반영되지 않는 현상이에요.<br>• <b>부정적 외부효과</b> · 공장 오염, 탄소 배출 → 사회적 최적보다 <b>과다 생산</b> → 교정세(피구세)·규제·배출권 거래<br>• <b>긍정적 외부효과</b> · 숲 조성, 예방 접종 → <b>과소 생산</b> → 보조금"], ["🎣", "공유지의 비극과 협력", "누구나 쓸 수 있는 공유 자원은 개인이 합리적으로 행동할수록 고갈되기 쉬워요(하딘, 1968).<br>오스트롬은 공동체가 <b>규칙·상호 감시·신뢰</b>로 공유 자원을 지켜 낼 수 있음을 보였어요(2009 노벨경제학상).<br>생각해 볼 질문 · <b>이 앱에서 모두의 실천이 하나의 그림으로 보이게 한 이유는 무엇일까요?</b>"]], "q": [["공장의 오염 물질 배출로 주변 주민이 피해를 입는 상황에 대한 설명으로 옳은 것은?", ["긍정적 외부효과이며 보조금이 필요하다", "부정적 외부효과이며 사회적 최적 수준보다 과다 생산된다", "외부효과가 아니라 시장 실패와 관계없다"], 1, "정답! 부정적 외부효과는 과다 생산을 낳고, 교정세·규제·배출권 거래 등으로 바로잡을 수 있어요."], ["공유지의 비극을 막는 방법에 대한 오스트롬의 주장과 가장 가까운 것은?", ["공유 자원은 반드시 사유화해야만 지킬 수 있다", "공동체가 스스로 만든 규칙과 상호 감시, 신뢰로 관리할 수 있다", "개인이 각자 이익을 최대화하면 자원은 저절로 보전된다"], 1, "정답! 오스트롬은 시장이나 정부만이 아니라 공동체의 자치적 협력으로도 공유 자원을 지킬 수 있음을 보였어요."]]}};
+const LEARN = {"e": {"t": "지구를 지키는 약속", "slides": [["🌡️", "지구가 아파요", "여름은 점점 더 더워지고, 쓰레기는 늘어나고, 살 곳을 잃는 동물이 생기고 있어요.<br>우리가 쓰는 <b>전기·물·물건·음식</b>이 지구에 영향을 줘요."], ["🌱", "지속가능하다는 건?", "<b>지금의 우리</b>도, <b>나중에 태어날 친구들</b>도 깨끗한 지구에서 살 수 있게 하는 거예요.<br>그래서 오늘 아껴 쓰고, 다시 쓰고, 나누는 습관이 중요해요."], ["🤝", "세계가 함께한 17가지 약속", "세계 여러 나라가 <b>2030년까지 함께 지키기로 한 17가지 약속</b>이 있어요.<br>또 <b>지구 온도가 1.5℃보다 더 오르지 않게 하자</b>고 함께 약속했어요(파리협정). 깨끗한 물, 깨끗한 에너지, 바다와 숲 지키기도 그 약속에 들어 있어요.<br>한 사람의 실천은 작아도, <b>모두가 함께하면 지구가 바뀌어요.</b>"], ["🌈", "17개 약속, 다섯 묶음", "17가지 약속은 다섯 묶음으로 나눌 수 있어요.<br><b>사람</b>(가난·배고픔·건강·배움·평등), <b>지구</b>(물·바다·숲·기후·소비), <b>번영</b>(에너지·일·기술·동네), <b>평화</b>, <b>협력</b>이에요.<br>오늘 내가 고른 다짐이 어느 약속의 색을 채우는지 확인해 보세요!"]], "q": [["지구를 지키는 생활에 가까운 것은 무엇일까요?", ["안 쓰는 교실 불 끄기", "물을 틀어 놓고 양치하기", "먹을 만큼보다 많이 받아 남기기"], 0, "맞아요! 안 쓰는 불을 끄면 전기를 아끼고 지구가 덜 더워져요."], ["‘지속가능하다’는 뜻에 가장 가까운 것은?", ["지금 우리만 편하게 사는 것", "나중의 친구들도 깨끗한 지구에서 살 수 있게 하는 것", "새 물건을 많이 사는 것"], 1, "맞아요! 지금과 미래를 함께 생각하는 거예요."]]}, "m": {"t": "환경 문제와 지속가능한 발전", "slides": [["🏭", "환경 문제는 왜 생길까?", "기후 변화, 자원 고갈, 쓰레기 문제의 큰 원인은 <b>화석 연료 사용</b>과 <b>대량 생산·대량 소비</b> 같은 인간 활동이에요.<br>환경 문제는 한 지역에 머물지 않고 <b>국경을 넘어</b> 영향을 줘요.<br>그래서 세계는 <b>파리협정(2015)</b>에서 지구 평균 기온 상승을 <b>1.5℃</b>로 억제하도록 함께 노력하기로 했어요."], ["⚖️", "지속가능한 발전", "미래 세대가 필요를 충족할 능력을 해치지 않으면서 <b>현재 세대의 필요를 충족하는 발전</b>이에요(1987, 「우리 공동의 미래」).<br><b>환경·사회·경제</b> 세 가지의 균형이 핵심이에요."], ["🎯", "지속가능발전목표(SDGs)", "2015년 유엔이 채택한 <b>17개 목표</b>로, 2030년까지 빈곤·불평등·기후 위기 같은 문제를 함께 해결하자는 약속이에요.<br>생각해 볼 질문 · <b>환경 문제는 왜 혼자 노력해서는 잘 해결되지 않을까요?</b>"], ["🌈", "SDGs 17개 목표와 5P", "유엔은 17개 목표를 <b>5P</b>로 묶어 설명해요. <b>사람(People)</b> 1~5, <b>지구(Planet)</b> 6·12~15, <b>번영(Prosperity)</b> 7~11, <b>평화(Peace)</b> 16, <b>협력(Partnership)</b> 17.<br>목표들은 서로 이어져 있어서, 하나의 실천이 여러 목표에 함께 영향을 줘요."]], "q": [["지속가능한 발전의 뜻으로 가장 알맞은 것은?", ["경제 성장을 가장 먼저 생각하는 발전", "미래 세대의 필요를 해치지 않으면서 현재 세대의 필요를 충족하는 발전", "환경 보호를 위해 개발을 모두 멈추는 것"], 1, "정답! 현재와 미래, 환경·사회·경제의 균형이 핵심이에요."], ["SDGs에 대한 설명으로 옳은 것은?", ["2015년 유엔이 채택한 17개 목표이다", "한 나라만 지키면 되는 약속이다", "환경 문제만 다룬다"], 0, "정답! 2030년까지 함께 이루기로 한 17개 목표예요. 환경뿐 아니라 빈곤·교육·불평등도 함께 다뤄요."]]}, "h": {"t": "외부효과와 공유지의 비극", "slides": [["🌏", "지속가능발전과 형평성", "지속가능발전은 환경·사회·경제의 균형을 추구하며, 현재 세대 안의 <b>세대 내 형평성</b>과 미래 세대를 고려하는 <b>세대 간 형평성</b>을 함께 다뤄요.<br>SDGs(2015)는 이를 17개 목표로 구체화했어요.<br>같은 해 <b>파리협정</b>은 산업화 이전 대비 지구 평균 기온 상승을 2℃보다 훨씬 낮게 유지하고 <b>1.5℃로 제한</b>하도록 노력하기로 했어요."], ["🏭", "외부효과", "어떤 경제 활동이 <b>의도하지 않게 제3자에게 이익이나 손해</b>를 주는데, 그 대가가 시장 가격에 반영되지 않는 현상이에요.<br>• <b>부정적 외부효과</b> · 공장 오염, 탄소 배출 → 사회적 최적보다 <b>과다 생산</b> → 교정세(피구세)·규제·배출권 거래<br>• <b>긍정적 외부효과</b> · 숲 조성, 예방 접종 → <b>과소 생산</b> → 보조금"], ["🎣", "공유지의 비극과 협력", "누구나 쓸 수 있는 공유 자원은 개인이 합리적으로 행동할수록 고갈되기 쉬워요(하딘, 1968).<br>오스트롬은 공동체가 <b>규칙·상호 감시·신뢰</b>로 공유 자원을 지켜 낼 수 있음을 보였어요(2009 노벨경제학상).<br>생각해 볼 질문 · <b>이 앱에서 모두의 실천이 하나의 그림으로 보이게 한 이유는 무엇일까요?</b>"], ["🌈", "5P와 목표 간 연계", "SDGs는 <b>사람·지구·번영·평화·협력(5P)</b>의 통합적 구조예요. 예를 들어 기후 대응(13)은 빈곤(1)·식량(2)·불평등(10)과 연결되고, 서로 충돌(trade-off)하기도 해요.<br>그래서 한 목표만이 아니라 <b>시간·공간·사회·윤리적 관점</b>을 함께 쓰는 통합적 관점이 필요해요."]], "q": [["공장의 오염 물질 배출로 주변 주민이 피해를 입는 상황에 대한 설명으로 옳은 것은?", ["긍정적 외부효과이며 보조금이 필요하다", "부정적 외부효과이며 사회적 최적 수준보다 과다 생산된다", "외부효과가 아니라 시장 실패와 관계없다"], 1, "정답! 부정적 외부효과는 과다 생산을 낳고, 교정세·규제·배출권 거래 등으로 바로잡을 수 있어요."], ["공유지의 비극을 막는 방법에 대한 오스트롬의 주장과 가장 가까운 것은?", ["공유 자원은 반드시 사유화해야만 지킬 수 있다", "공동체가 스스로 만든 규칙과 상호 감시, 신뢰로 관리할 수 있다", "개인이 각자 이익을 최대화하면 자원은 저절로 보전된다"], 1, "정답! 오스트롬은 시장이나 정부만이 아니라 공동체의 자치적 협력으로도 공유 자원을 지킬 수 있음을 보였어요."]]}};
 const ETH = [["인권 보장", "참여를 강요하지 않고, 누구나 자유롭게 참여해요."], ["프라이버시 보호", "이름·연락처·로그인 없이 참여해 개인정보를 받지 않아요."], ["다양성 존중", "초·중·고 수준별 설명, 쉬운 말, 그림 버튼으로 누구나 접근할 수 있어요."], ["침해 금지", "불안을 키우는 표현 대신 실천할 수 있는 희망의 언어를 써요."], ["공공성", "오픈 소스로 공개해 어느 학교나 무료로 쓸 수 있어요."], ["연대성", "혼자가 아니라 모두의 조각으로 그림을 완성해요."], ["데이터 관리", "조각 수만 모으고, 누가 다짐했는지는 저장하지 않아요."], ["책임성", "AI로 만든 내용은 교사가 검토하고, 만든 곳과 고칠 방법을 밝혀요."], ["안전성", "광고·외부 결제 없이 링크 하나로만 열려요."], ["투명성", "문장 카드의 출처(SDGs)와 생성형 AI 활용 사실을 밝혀요."]];
 const ETHQ = {"e": ["🔒 프라이버시 보호", "이 앱은 왜 내 이름을 묻지 않을까요?"], "m": ["🔍 투명성", "문장 카드의 내용은 어디에서 왔을까요? 출처를 밝히는 것은 왜 중요할까요?"], "h": ["🤝 공공성·연대성", "이 앱을 다른 학교와 무료로 나누는 것은 어떤 의미가 있을까요?"]};
 function learnHTML(){ const L=LEARN[Me.lv];
